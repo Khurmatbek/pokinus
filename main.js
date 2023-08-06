@@ -1,18 +1,15 @@
-var elsection = document.querySelector(".title-image");
-var list = document.querySelector(".list");
-var titleImage = document.createElement("img");
-titleImage.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Pok%C3%A9mon_GO_logo.svg/1200px-Pok%C3%A9mon_GO_logo.svg.png");
-titleImage.setAttribute("width", "60%");
-titleImage.setAttribute("height", "300px");
-elsection.appendChild(titleImage);
-titleImage.classList.add("title-img");
-var pokemonsFunction = function () {
-    pokemons.forEach(element => {
+const elForm = document.querySelector(".form");
+const elSearch = document.querySelector(".search");
+const elsection = document.querySelector(".title-image");
+const list = document.querySelector(".list");
+const pokemonsFunction = function (searchelemet) {
+    list.innerHTML = " ";
+    searchelemet.forEach(element => {
         /*  create item  */
-        var item = document.createElement("li");
+        let item = document.createElement("li");
         item.classList.add("item")
         /*  craete img */
-        var image = document.createElement("img");
+        let image = document.createElement("img");
         /*  craete image as class */
         image.classList.add("image");
         /*  add images as atribut */
@@ -23,16 +20,15 @@ var pokemonsFunction = function () {
         list.appendChild(item);
         item.appendChild(image);
         /* ******************************** */
-        var listSec = document.createElement("ul");
+        let listSec = document.createElement("ul");
         /*  add class in list-sec */
         listSec.classList.add("list-sec");
         /*  ul>4*li */
-        var itemweight = document.createElement("li");
-        var itemweight = document.createElement("li");
-        var itemeggs = document.createElement("li");
-        var itemheight = document.createElement("li");
-        var itemspawntime = document.createElement("li");
-        var itemname = document.createElement("li");
+        let itemweight = document.createElement("li");
+        let itemeggs = document.createElement("li");
+        let itemheight = document.createElement("li");
+        let itemspawntime = document.createElement("li");
+        let itemname = document.createElement("li");
         /* ******************************************************* */
         itemweight.classList.add("item-sec");
         itemeggs.classList.add("item-sec");
@@ -40,11 +36,11 @@ var pokemonsFunction = function () {
         itemspawntime.classList.add("item-sec");
         itemname.classList.add("item-sec", "item-sec-name");
         /* ******************************************************* */
-        var descweight = document.createElement("p");
-        var desceggs = document.createElement("p");
-        var descheight = document.createElement("p");
-        var descspawntime = document.createElement("time");
-        var descname = document.createElement("p");
+        let descweight = document.createElement("p");
+        let desceggs = document.createElement("p");
+        let descheight = document.createElement("p");
+        let descspawntime = document.createElement("time");
+        let descname = document.createElement("p");
         /* ******************************************************* */
         descweight.classList.add("desc");
         desceggs.classList.add("desc");
@@ -70,10 +66,21 @@ var pokemonsFunction = function () {
         descheight.textContent = `height: ${element.height}`
         descspawntime.textContent = `
          spawn_time: ${element.spawn_time}`
-        descname.textContent = `name: ${element.name}`
+        descname.textContent = `name: ${element.name}`  
+
     });
 }
-pokemonsFunction();
+pokemonsFunction(pokemons);
+elForm.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+    const searchvalue = elSearch.value.trim().toLowerCase();
+    let newsearch = pokemons.filter(function (element) {
+        return element.name.toLocaleLowerCase() == searchvalue;
+    })
+  
+    pokemonsFunction(newsearch);
+
+})
 
 
 
