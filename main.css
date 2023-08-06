@@ -26,6 +26,25 @@ body {
     margin: 0 auto;
     margin-bottom: 30px;
 }
+.error-box {
+
+    margin: o auto;
+    display:none;
+    padding: 20px 20px;
+    align-items: center;
+    justify-content: center;
+    /* width: 300px;
+    height: 200px; */
+    background-color: red;
+    text-align: center;
+}
+.error{
+font-size: 30px;
+    
+}
+.not{
+    display:flex;
+}
 .search {
     max-width: 300px;
     width: 100%;
@@ -130,6 +149,6 @@ body {
         gap: 10px;
     }
     .pokemons__text {
-        font-size:100px;
+        font-size: 100px;
     }
 }

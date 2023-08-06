@@ -2,9 +2,12 @@ const elForm = document.querySelector(".form");
 const elSearch = document.querySelector(".search");
 const elsection = document.querySelector(".title-image");
 const list = document.querySelector(".list");
+const div = document.querySelector(".error-box");
+const text=document.querySelector(".error");
 const pokemonsFunction = function (searchelemet) {
     list.innerHTML = " ";
-    searchelemet.forEach(element => {
+    console.log(searchelemet);
+    searchelemet == [] ? alert("bosh") : searchelemet.forEach(element => {
         /*  create item  */
         let item = document.createElement("li");
         item.classList.add("item")
@@ -66,20 +69,20 @@ const pokemonsFunction = function (searchelemet) {
         descheight.textContent = `height: ${element.height}`
         descspawntime.textContent = `
          spawn_time: ${element.spawn_time}`
-        descname.textContent = `name: ${element.name}`  
-
-    });
+        descname.textContent = `name: ${element.name}`
+    })
 }
 pokemonsFunction(pokemons);
+
 elForm.addEventListener("submit", function (evt) {
     evt.preventDefault();
     const searchvalue = elSearch.value.trim().toLowerCase();
     let newsearch = pokemons.filter(function (element) {
-        return element.name.toLocaleLowerCase() == searchvalue;
+       
+        return  element.name.toLowerCase().includes(searchvalue);
     })
-  
-    pokemonsFunction(newsearch);
-
+    pokemonsFunction(newsearch); 
+ 
 })
 
 
