@@ -27,9 +27,8 @@ body {
     margin-bottom: 30px;
 }
 .error-box {
-
     margin: o auto;
-    display:none;
+    display: none;
     padding: 20px 20px;
     align-items: center;
     justify-content: center;
@@ -38,12 +37,11 @@ body {
     background-color: red;
     text-align: center;
 }
-.error{
-font-size: 30px;
-    
+.error {
+    font-size: 30px;
 }
-.not{
-    display:flex;
+.not {
+    display: flex;
 }
 .search {
     max-width: 300px;
@@ -120,7 +118,7 @@ font-size: 30px;
     margin: 0 auto;
     padding: 10px 5px;
     text-align: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 25px;
 }
 .desc {
@@ -151,4 +149,20 @@ font-size: 30px;
     .pokemons__text {
         font-size: 100px;
     }
+}
+.btn {
+    max-width: 250px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    background-color: transparent !important;
+    border-radius: 30px;
+    border: 1.3px solid orange !important;
+}
+.modal-content {
+    background-color: orange !important;
+}
+.modal-body {
+    display: flex  !important;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
